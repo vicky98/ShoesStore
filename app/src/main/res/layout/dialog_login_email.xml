@@ -4,16 +4,6 @@
     android:layout_height="wrap_content">
 
     <EditText
-        android:id="@+id/main_dialog_su_email"
-        android:inputType="textEmailAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="4dp"/>
-
-    <EditText
         android:id="@+id/main_dialog_su_password"
         android:inputType="textPassword"
         android:layout_width="match_parent"
@@ -23,4 +13,14 @@
         android:layout_marginRight="4dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif"/>
+
+    <EditText
+        android:id="@+id/main_dialog_su_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="16dp"
+        android:inputType="textEmailAddress" />
 </LinearLayout>
