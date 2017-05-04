@@ -24,7 +24,11 @@
             android:name=".Store"
             android:label="@string/title_activity_store"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Dummy"></activity>
+        <activity android:name=".Dummy" />
+        <activity
+            android:name=".ShoppingBasket"
+            android:label="@string/title_activity_shopping_basket"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
