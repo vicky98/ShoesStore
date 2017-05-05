@@ -1,6 +1,5 @@
 package shoesstore.com.shoesstore;
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.LayoutRes;
@@ -13,11 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.analytics.ecommerce.Product;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CustomListAdapter extends ArrayAdapter<Product> {
     ArrayList<Product> products;

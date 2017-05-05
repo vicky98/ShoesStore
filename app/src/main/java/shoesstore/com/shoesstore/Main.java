@@ -147,7 +147,7 @@ public class Main extends AppCompatActivity {
     }
 
     public void goToStore(String email, String UID) {
-        Intent intent = new Intent(this, Store.class);
+        Intent intent = new Intent(this, Store2.class);
         intent.putExtra("userEmail", email);
         intent.putExtra("userUID", UID);
 
