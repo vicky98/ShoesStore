@@ -1,5 +1,6 @@
 package shoesstore.com.shoesstore;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,12 +17,21 @@ import android.view.MenuItem;
 public class Store extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private String userEmail;
+    private String userUID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Store");
         setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+        userEmail = intent.getStringExtra("userEmail");
+        userUID = intent.getStringExtra("userUID");
+
 
 /*        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -80,12 +90,18 @@ public class Store extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_store) {
+        if (id == R.id.nav_basket) {
+            Intent intent = new Intent(Store.this, Main.class);
+            intent.putExtra("uEmail", userEmail);
+            intent.putExtra("uUid", userUID);
 
-        } else if (id == R.id.nav_basket) {
-
+            startActivity(intent);
         } else if (id == R.id.nav_logout) {
+            Intent intent = new Intent(Store.this, Main.class);
+            intent.putExtra("uEmail", userEmail);
+            intent.putExtra("uUid", userUID);
 
+            startActivityForResult(intent, 100);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

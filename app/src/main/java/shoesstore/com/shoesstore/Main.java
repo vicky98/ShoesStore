@@ -66,20 +66,20 @@ public class Main extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+        startActivityForResult(AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setProviders(
+                        AuthUI.EMAIL_PROVIDER,
+                        AuthUI.GOOGLE_PROVIDER)
+                .build(), RC_SIGN_IN);
+
         if (firebaseAuth.getCurrentUser() != null) {
             String email = firebaseAuth.getCurrentUser().getEmail();
             String uid = firebaseAuth.getCurrentUser().getUid();
 
-            goToShop(email, uid);
+            goToStore(email, uid);
 
             Log.d(TAG, "User already logged in >> User email: " + email + " User UID: " + uid);
-        } else {
-            startActivityForResult(AuthUI.getInstance()
-                    .createSignInIntentBuilder()
-                    .setProviders(
-                            AuthUI.EMAIL_PROVIDER,
-                            AuthUI.GOOGLE_PROVIDER)
-                    .build(), RC_SIGN_IN);
         }
     }
 
@@ -94,7 +94,7 @@ public class Main extends AppCompatActivity {
 
                 Log.d(TAG, "User logged in >> User email: " + userEmail + " UserUid: " + userUid);
 
-                goToShop(userEmail, userUid);
+                goToStore(userEmail, userUid);
 
                 /*Intent intent = new Intent(this, Dummy.class);
 
@@ -106,6 +106,8 @@ public class Main extends AppCompatActivity {
                 Log.d(TAG, "Log in unsuccessful");
                 Toast.makeText(this, "Log in unsuccessful.", Toast.LENGTH_SHORT);
             }
+        } else if (requestCode == 100) {
+            firebaseAuth.signOut();
         }
     }
 
@@ -144,8 +146,8 @@ public class Main extends AppCompatActivity {
         Log.d(TAG, "onDestroy");
     }
 
-    public void goToShop(String email, String UID) {
-        Intent intent = new Intent(this, Dummy.class);
+    public void goToStore(String email, String UID) {
+        Intent intent = new Intent(this, Store.class);
         intent.putExtra("userEmail", email);
         intent.putExtra("userUID", UID);
 
